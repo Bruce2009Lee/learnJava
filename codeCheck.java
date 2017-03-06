@@ -2,6 +2,8 @@ package StringExample;
 
 import java.util.Scanner;
 
+//authour :zhonglian
+//for: HuaWei Online programm
 class codeInfo{
 	public String code;
 	public codeInfo(){
