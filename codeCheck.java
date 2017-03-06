@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 //authour :zhonglian
 //for: HuaWei Online programm
+//changed in branck dev
 class codeInfo{
 	public String code;
 	public codeInfo(){
