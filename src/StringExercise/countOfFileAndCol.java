@@ -1,12 +1,11 @@
 package StringExercise;
 
-import java.util.ArrayDeque;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
+import java.util.HashMap;  
 
 class errFileInfo{
 	public String fName;
@@ -28,17 +27,35 @@ class errFileInfo{
 public class countOfFileAndCol {
 
 	public static void main(String[] args) {
+		
 		Scanner scan = new Scanner(System.in);
-		String[]  strArr = scan.nextLine().split("\\");
-		Queue<errFileInfo> hs = new LinkedList<errFileInfo>();
-		Iterator iter = hs.iterator();
+		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		
-		for(int i = 0 ; i < strArr.length ; i ++){
-			errFileInfo tmp = new errFileInfo(strArr[i].split(" ")[0],strArr[i].split(" ")[1]);
-			if (hs.contains(tmp)){
-		
+		while(scan.hasNextLine()){
+			String[]  in = scan.nextLine().split(" ");
+			String[] fileName = in[0].split("\\\\");
+			String tmp = null;
+			String head = null;
+			if(fileName[fileName.length - 1].length() > 16){
+				tmp = fileName[fileName.length - 1].substring(fileName.length - 16) + " " + in[1];
 			}
+			else{
+				tmp = fileName[fileName.length - 1] + " " + in[1];
+			}
+			if( !hm.containsKey(tmp) ){
+				hm.put(tmp, 1);
+			}
+			else{
+				hm.replace(tmp,hm.get(tmp),hm.get(tmp) + 1);
+			}
+			int count = 0;
+			for(String string:hm.keySet()){
+				count++;
+				if(count>(hm.keySet().size() - 8))
+					System.out.println(string+" "+hm.get(string));
+			}	
 		}
+			
 	}
 
 }
