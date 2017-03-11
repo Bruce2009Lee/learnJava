@@ -4,7 +4,17 @@ import java.util.Scanner;
 
 //authour :zhonglian
 //for: HuaWei Online programm
-//changed in branck dev
+//changed in branch dev
+//
+/*
+		密码验证合格程序
+		密码要求:
+
+		1.长度超过8位
+		2.包括大小写字母.数字.其它符号,以上四种至少三种
+		3.不能有相同长度超2的子串重复
+		说明:长度超过2的子串
+*/
 class codeInfo{
 	public String code;
 	public codeInfo(){
